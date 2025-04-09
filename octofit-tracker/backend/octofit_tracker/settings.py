@@ -80,7 +80,7 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 # Add MongoDB database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'djongo',  # Database engine explicitly set to djongo
         'NAME': 'octofit_db',
         'HOST': 'localhost',
         'PORT': 27017,
