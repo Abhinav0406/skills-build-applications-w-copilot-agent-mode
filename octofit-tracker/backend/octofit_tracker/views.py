@@ -1,19 +1,19 @@
-from rest_framework import viewsets, status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework import viewsets, status  # noqa: F401
+from rest_framework.decorators import api_view  # noqa: F401
+from rest_framework.response import Response  # noqa: F401
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'http://localhost:8000/'
+    base_url = 'https://studious-fortnight-pjpx4767r7p427xq-8000.app.github.dev/'
     return Response({
         'users': base_url + 'api/users/',
         'teams': base_url + 'api/teams/',
         'activities': base_url + 'api/activities/',
         'leaderboard': base_url + 'api/leaderboard/',
         'workouts': base_url + 'api/workouts/'
-    })
+    }, content_type='application/json')
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
